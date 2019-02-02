@@ -1,0 +1,37 @@
+If we want to decode a base64 value to ASCII there are many 
+posible ways to approach solving this.
+
+1. python Script
+
+#!/bin/bash/env python
+import base64
+
+base64data = "dGg0dF93NHNfczFtcEwz"
+result = base64.b64decode(base64data)
+print result
+
+
+2. echo "<base64 value>" | base64 -d
+
+   we are echo the file value to the console and piping it to base64
+	-d like in the pthon script is the option to decode.
+
+
+3. base64 -d <<< "<base64 value>"
+	
+
+
+4. This is the most common and the one to learn
+
+	type: python to open the interpreter
+
+	"<string value of base64 val>".decode('base64')
+
+The process will look like this:
+Python 2.7.15+ (default, Nov 28 2018, 16:27:22) 
+[GCC 8.2.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> "dGg0dF93NHNfczFtcEwz".decode('base64')
+'th4t_w4s_s1mpL3'
+>>> 
+

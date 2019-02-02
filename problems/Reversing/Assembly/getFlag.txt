@@ -1,0 +1,2 @@
+What does asm0(0xc9,0xb0) return? Submit the flag as a hexadecimal value (starting with '0x'). NOTE: Your submission for this question will NOT be in the normal flag format. Source located in the directory at /problems/assembly-0_4_0f197369bfc00a9211504cf65ac31994. 
+picoCTF{0xb0}

@@ -1,0 +1,13 @@
+Okay, so we found some important looking files on a linux computer. 
+Maybe they can be used to get a password to the process. Connect with 
+nc 2018shell.picoctf.com 40157. Files can be found here: passwd shadow. 
+
+[Tip for unshadowing]
+
+       unshadow password-file shadow-file > <NewpasswordFile>
+
+	The result of running cat root:$6$HRMJoyGA$26FIgg6CU0bGUOfqFB0Qo9AE2LRZxG8N3H.3BK8t49wGlYbkFbxVFtGOZqVIq3qQ6k0oetDbn2aVzdhuVQ6US.:0:0:root:/root:/bin/bash
+
+
+
+

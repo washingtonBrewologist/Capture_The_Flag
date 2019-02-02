@@ -1,0 +1,3 @@
+ We captured some traffic logging into the admin panel, can you find the password? 
+Binary file (standard input) matches
+picoCTF{n0ts3cur3_9feedfbc}

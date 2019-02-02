@@ -1,0 +1,22 @@
+Can you find the flag in file? This would be really obnoxious 
+to look through by hand, see if you can find a faster way. You 
+can also find the file in 
+
+/problems/grep-1_3_8d9cff3d178c231ab735dfef3267a1c2 on the shell server. 
+
+
+[ Solution ]
+
+
+	Download the file from the server and mv ~/Downloads/file to 
+	where its needed. 
+	
+	Next, we user grep to search to file for a specific String:
+
+		grep -oE "picoCTF{.*}" file > results.txt
+
+
+[Flag]
+
+picoCTF{grep_and_you_will_find_cdf2e7c2}
+	

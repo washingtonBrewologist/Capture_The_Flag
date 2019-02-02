@@ -1,0 +1,16 @@
+Can you unzip this file(flag.txt) and retreive the flag?
+
+
+[Solution]
+
+1. Once file is downloaded, us cp <path to download> <destination directory>
+
+2. Now we can issue the unzip command: unizp flag.zip
+
+3. A jpg file named flag is now in the folder and we can open in the file explorer.
+
+
+[Flag]
+
+picoCTF{welcome_to_forensics}
+

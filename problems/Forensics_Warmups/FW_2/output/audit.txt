@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Jan 25 18:45:13 2019
+Invocation: foremost -v -t jpeg,png,pdf,gif flag.png 
+Output directory: /root/CTF/problems/Forensics_Warmups/FW_2/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: flag.png
+Start: Fri Jan 25 18:45:13 2019
+Length: 30 KB (31688 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	      30 KB 	          0 	 
+Finish: Fri Jan 25 18:45:13 2019
+
+1 FILES EXTRACTED
+	
+jpg:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Jan 25 18:45:13 2019

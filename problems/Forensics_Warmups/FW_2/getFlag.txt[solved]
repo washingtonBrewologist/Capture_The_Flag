@@ -1,0 +1,54 @@
+Hmm for some reason I can't open this PNG(flag.png). Any ideas?
+
+
+[Solution]
+
+1. Since we are needing to look at an Audit of the png file we will use
+   foremost to get what we need.
+
+2. Enter foremost -v -t jpeg,png,pdf,gif flag.png
+         
+	-v=verbose  -t specify file type(s)
+
+3. We are given the following Audit form:
+
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Jan 25 18:45:13 2019
+Invocation: foremost -v -t jpeg,png,pdf,gif flag.png 
+Output directory: /root/CTF/problems/Forensics_Warmups/FW_2/output
+Configuration file: /etc/foremost.conf
+Processing: flag.png
+|------------------------------------------------------------------
+File: flag.png
+Start: Fri Jan 25 18:45:13 2019
+Length: 30 KB (31688 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	      30 KB 	          0 	 
+*|
+Finish: Fri Jan 25 18:45:13 2019
+
+1 FILES EXTRACTED
+	
+jpg:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Jan 25 18:45:13 2019
+
+
+
+The results of the Audit suggest that the file is a jpg and NOT a png.
+
+To get the flag all we need to do is change the name of the file:
+
+mv flag.png flag.jpg
+
+
+
+[Flag]
+
+picoCTF{extensions_are_a_lie}
+ 

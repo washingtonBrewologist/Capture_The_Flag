@@ -1,0 +1,265 @@
+GET / HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 2149
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:56:55 GMT
+<!DOCTYPE html>
+<html lang="en">
+    <title>Super Secure Website</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/logout" class="btn btn-link pull-right">Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Super Secure Website</h3>
+        </div>
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+      <div class="jumbotron">
+        <p class="lead"></p>
+        <div class="login-form">
+            <form role="form" action="/login" method="post">
+                <div class="form-group">
+                    <input type="text" name="user" id="email" class="form-control input-lg" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <p>&copy; PicoCTF 2018</p>
+    </footer>
+$(document).ready(function(){
+    $(".close").click(function(){
+        $("myAlert").alert("close");
+0YPOST /login HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.3.128/
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 28
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+user=jimmy&password=p4ssw0rd
+oHTTP/1.0 302 FOUND
+oContent-Type: text/html; charset=utf-8
+Content-Length: 219
+Location: http://192.168.3.128/admin
+Set-Cookie: password=p4ssw0rd; Path=/
+Set-Cookie: username=jimmy; Path=/
+Set-Cookie: admin=False; Path=/
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:57:08 GMT
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="/admin">/admin</a>.  If not click the link.
+GET /admin HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.3.128/
+Cookie: password=p4ssw0rd; username=jimmy; admin=False
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1944
+Set-Cookie: session=; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:57:08 GMT
+<!DOCTYPE html>
+<html lang="en">
+    <title>Super Secure Website</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/logout" class="btn btn-link pull-right">Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Super Secure Website</h3>
+        </div>
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        <div class="alert alert-success alert-dismissible" role="alert" id="myAlert">
+          <button type="butto
+n" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <!-- <strong>Title</strong> --> Welcome to the website! If you were admin you would see all of your settings here!
+            </div>
+        <div class="jumbotron">
+            <p class="lead"></p>
+            <p style="text-align:center; font-size:30px;"><b>No flag for you</b></p>
+        </div>
+        <footer class="footer">
+            <p>&copy; PicoCTF 2018</p>
+        </footer>
+    </div>
+    <script>
+    $(document).ready(function(){
+        $(".close").click(function(){
+            $("myAlert").alert("close");
+        });
+    </script>
+9MGET /logout HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.3.128/admin
+Cookie: password=p4ssw0rd; username=jimmy; admin=False
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+cHTTP/1.0 302 FOUND
+cContent-Type: text/html; charset=utf-8
+Content-Length: 209
+Location: http://192.168.3.128/
+Set-Cookie: password=; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Path=/
+Set-Cookie: username=; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Path=/
+Set-Cookie: admin=; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Path=/
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:57:10 GMT
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="/">/</a>.  If not click the link.
+9WGET / HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.3.128/admin
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+nHTTP/1.0 200 OK
+nContent-Type: text/html; charset=utf-8
+Content-Length: 2149
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:57:10 GMT
+<!DOCTYPE html>
+<html lang="en">
+    <title>Super Secure Website</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/logout" class="btn btn-link pull-right">Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Super Secure Website</h3>
+        </div>
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+      <div class="jumbotron">
+        <p class="lead"></p>
+        <div class="login-form">
+            <form role="form" action="/login" method="post">
+                <div class="form-group">
+p                   <input type="text" name="user" id="email" class="form-control input-lg" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <p>&copy; PicoCTF 2018</p>
+    </footer>
+$(document).ready(function(){
+    $(".close").click(function(){
+        $("myAlert").alert("close");
+wPOST /login HTTP/1.1
+Host: 192.168.3.128
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.3.128/
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 53
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+user=admin&password=picoCTF{n0ts3cur3_9feedfbc}
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1359
+Vary: Cookie
+Set-Cookie: session=.eJwNykEKgzAQBdCrfGbjRjxAb9AjlCIlxNEENJH5E0TEu9fV27xLfvMamJTy-l4CfxC2GJWUXt7dBlazE54UYdpywR7Io9qETLDtaqDGZjrgU1tnilIdi7rnsuD5noLjCOcg4z3ef6r0J6E.DiQMPQ.IIYhVFRxOE5tWmCivR6sAXl7b0M; HttpOnly; Path=/
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Sun, 08 Jul 2018 20:57:33 GMT
+<!DOCTYPE html>
+<html lang="en">
+    <title>Super Secure Website</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/logout" class="btn btn-link pull-right">Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Super Secure Website</h3>
+        </div>
+        <div class="jumbotron">
+            <p class="lead"></p>
+            
+<p style="text-align:center; font-size:30px;"><b>Admin Panel</b>: <p><code>Here's where you can do all of the important admin things.</code></p></p>
+        </div>
+        <footer class="footer">
+            <p>&copy; PicoCTF 2018</p>
+        </footer>
+    </div>

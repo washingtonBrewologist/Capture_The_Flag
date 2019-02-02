@@ -1,0 +1,25 @@
+.intel_syntax noprefix
+.bits 32
+	
+.global asm0
+
+asm0:
+	push	ebp	   ; function prologue
+	mov	ebp,esp    ; function prologue
+	mov	eax,DWORD PTR [ebp+0x8] ; eax=06c9
+	mov	ebx,DWORD PTR [ebp+0xc] ; ebx=0xb0
+	mov	eax,ebx   ; eax=ebx=0xb0
+	mov	esp,ebp	    ; function epilogue		
+	pop	ebp			
+	ret
+
+[Stack frame]
+----------
+argument variables
+
+return address
+
+	ebp
+
+local variables
+----------

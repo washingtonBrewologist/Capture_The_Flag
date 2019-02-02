@@ -1,0 +1,39 @@
+Okay, so we found some important looking files on a linux computer. 
+Maybe they can be used to get a password to the process. Connect with 
+nc 2018shell.picoctf.com 40157. Files can be found here: passwd shadow. 
+
+[Tip for unshadowing]
+
+       unshadow password-file shadow-file > passwordfile.txt
+
+
+	The result of running cat passwordfile.txt:
+	
+	We now have user name and passwords hashes combined in one file.
+
+	root:$6$HRMJoyGA$26FIgg6CU0bGUOfqFB0Qo9AE2L
+	RZxG8N3H.3BK8t49wGlYbkFbxVFtGOZqVIq3qQ6k0oe
+	tDbn2aVzdhuVQ6US.:0:0:root:/root:/bin/bash
+
+	
+	Now we can direct john to this file to see if it locates any passwords
+	using out of date encryption algorythims. We can issue the commands:
+	We first move rockyou.txt file into our directory. 
+		
+		This command will run the hashed against this password file
+		
+		john --wordlist=rockyou.txt passwordsFile.txt 
+		
+		it will tell you if anything has been cracked! --show will 
+		give us the answer as output to console.
+
+		john --crack-status --show passwordFile.txt
+
+
+[Flag]
+
+	Username : root
+	Password : kissme
+
+        picoCTF{J0hn_1$_R1pp3d_1b25af80}
+	

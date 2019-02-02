@@ -1,0 +1,2 @@
+Stego-Saurus hid a message for you in this image, can you retreive it?
+picoCTF{r34d1ng_b37w33n_7h3_by73s}

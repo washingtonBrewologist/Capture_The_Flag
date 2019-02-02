@@ -1,0 +1,19 @@
+-We use curl to transfer data from or to a server using one of the supported
+ protocols ((DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS,  IMAP,
+       IMAPS,  LDAP,  LDAPS,  POP3,  POP3S,  RTMP, RTSP, SCP, SFTP, SMB, SMBS,
+       SMTP, SMTPS, TELNET and TFTP))
+
+	[Example]
+	
+	curl "http://picoctf.com/resources" | grep -oE "picoCTF{.*}"
+
+	Here curl is fetching the raw webpage and we pipe this to grep to search for
+	the specific matching string 
+	
+	-o: handles Printing only the matched parts of 
+	a matching line.
+	
+	-E: Interpret  PATTERNS  as  extended regular expressions (EREs, see
+              below)
+
+ 
