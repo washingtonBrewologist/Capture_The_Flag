@@ -1,0 +1,82 @@
+[result of Assembly code]:
+[Line]
+1.) function prologue
+2.) function prologue
+3.) checks to see if 0xdc(220) > (0x15e) is true. Jumps to part a.
+4.) In part a we check that 0x68 != 0x15e. This is true jump to part c
+5.) In part c we simply take 0x15e + 0x68 and we have what we need!
+6.) picoCTF{0x161}
+7.)
+
+.intel_syntax noprefix
+.bits 32
+	
+.global asm1
+
+asm1:
+1.)	push	ebp
+2.)	mov	ebp,esp
+3.)	cmp	DWORD PTR [ebp+0x8],0xdc
+	jg 	part_a	
+	cmp	DWORD PTR [ebp+0x8],0x8
+	jne	part_b
+	mov	eax,DWORD PTR [ebp+0x8]
+	add	eax,0x3
+	jmp	part_d
+part_a:
+4.)	cmp	DWORD PTR [ebp+0x8],0x68
+	jne	part_c
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+part_b:
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+	cmp	DWORD PTR [ebp+0x8],0xfc
+	jne	part_c
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+part_c:
+5.)	mov	eax,DWORD PTR [ebp+0x8]
+	add	eax,0x3
+part_d:
+	pop	ebp
+	ret
+.intel_syntax noprefix
+.bits 32
+	
+.global asm1
+
+asm1:
+	push	ebp
+	mov	ebp,esp
+	cmp	DWORD PTR [ebp+0x8],0xdc
+	jg 	part_a	
+	cmp	DWORD PTR [ebp+0x8],0x8
+	jne	part_b
+	mov	eax,DWORD PTR [ebp+0x8]
+	add	eax,0x3
+	jmp	part_d
+part_a:
+	cmp	DWORD PTR [ebp+0x8],0x68
+	jne	part_c
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+part_b:
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+	cmp	DWORD PTR [ebp+0x8],0xfc
+	jne	part_c
+	mov	eax,DWORD PTR [ebp+0x8]
+	sub	eax,0x3
+	jmp	part_d
+part_c:
+	mov	eax,DWORD PTR [ebp+0x8]
+	add	eax,0x3
+part_d:
+	pop	ebp
+	ret
